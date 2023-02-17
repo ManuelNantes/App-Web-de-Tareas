@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista de Pendientes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body{
+            background: #4e54c8;
+            background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
+            width: 100%;
+            height:100%;
+            font-family: 'Exo', sans-serif;
+            color: white;
+            padding-top: 60px;
+        }
+
+        .container{
+            max-width: 550px;
+            margin: auto;
+            background: rgba( 78, 84, 200, 0.35 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 4.5px );
+            -webkit-backdrop-filter: blur( 4.5px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+
+        }
+
+        a,
+        p {
+            color: #C8BDCD;
+            text-decoration: none;
+
+        }
+
+        .barra-superior {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            padding: 50px;
+            border-radius: 5px 5px 0 0;
+            background: #4e54c8;
+            background: linear-gradient(270deg, #9F4EC8, #4e54c8);
+            font-size: 20px;
+            font-height: light;
+        }
+
+        .barra-superior a {
+            color: #fff;
+        }
+
+        .envoltorio-tarea {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+            border-top: 1px solid #C8BDCD;
+        }
+
+        .titulo-tarea{
+            display:flex;
+            align-items: center;
+        }
+
+        .titulo-tarea a {
+            text-decoration: none;
+            color: #fff;
+            margin-left: 10px;
+        }
+
+        .icono-tarea-completa {
+            height: 7px;
+            width: 7px;
+            background-color: #4EC86C;
+            border-radius: 50px;
+        }
+
+        .icono-tarea-incompleta {
+            height: 7px;
+            width: 7px;
+            background-color: #C84E4E;
+            border-radius: 50px;
+        }
+
+        .enlace-eliminar {
+            text-decoration: none;
+            font-weight: 900;
+            color: ;
+            font-size: 24px;
+            line-height: 0;
+        }
+
+        #envoltorio-agregar-buscar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px;
+        }
+
+        #enlace-agregar {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            text-shadow: 1px 1px #C8BDCD;
+        }
+
+        #busqueda {
+            border: 1px solid #C8BDCD;
+            border-radius: 5px 0 0 5px;
+            padding: 10px;
+            width: 90%;
+        }
+
+        input[type=text],
+        input[type=password],
+        textarea {
+            border: 1px solid #C8BDCD;
+            border-radius: 5px;
+            padding: 10px;
+            width: 90%;
+        }
+
+        label {
+            padding-top: 10px !important;
+            display: block;
+        }
+
+        input[type=submit] {
+            background: rgba( 78, 84, 200, 0.35 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 4.5px );
+            -webkit-backdrop-filter: blur( 4.5px );
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            color: #C8BDCD;
+            padding: 10px;
+            font-size: 14px;
+            border-radius:0 5px 5px 0;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .cuerpo-tarjeta{
+            padding: 20px 40px;
+            line-height: 40px;
+        }
+
+        .circles{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .circles li{
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+
+        }
+
+        .circles li:nth-child(1){
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+
+
+        .circles li:nth-child(2){
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+
+        .circles li:nth-child(3){
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+        }
+
+        .circles li:nth-child(4){
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+
+        .circles li:nth-child(5){
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+
+        .circles li:nth-child(6){
+            left: 75%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 3s;
+        }
+
+        .circles li:nth-child(7){
+            left: 35%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 7s;
+        }
+
+        .circles li:nth-child(8){
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 15s;
+            animation-duration: 45s;
+        }
+
+        .circles li:nth-child(9){
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+        }
+
+        .circles li:nth-child(10){
+            left: 85%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+        }
+
+
+
+        @keyframes animate {
+
+            0%{
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+
+            100%{
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+
+        }
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="area" >
+            <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+
+    <div class="container">
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+</body>
+</html>
